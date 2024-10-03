@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Newtonsoft.Json; // For JSON support
+using Newtonsoft.Json; // For JSON support // I had to add this depdendency 
 
 class Entry
 {
@@ -31,7 +31,7 @@ class Entry
         Console.WriteLine();
     }
 
-    // CSV-friendly format
+    // CSV-friendly format.
     public string ToCsv()
     {
         return $"\"{Date}\",\"{Prompt.Replace("\"", "\"\"")}\",\"{Response.Replace("\"", "\"\"")}\",\"{Mood}\",\"{Tags}\"";
@@ -55,7 +55,7 @@ class Journal
         }
     }
 
-    // Save entries as a CSV file
+    // Save entries as a CSV file.
     public void SaveToCsv(string file)
     {
         using (StreamWriter writer = new StreamWriter(file))
@@ -70,7 +70,7 @@ class Journal
         }
     }
 
-    // Load entries from a CSV file
+    // Load entries from a CSV file.
     public void LoadFromCsv(string file)
     {
         entries.Clear();
@@ -95,7 +95,7 @@ class Journal
         }
     }
 
-    // Save entries as a JSON file
+    // Save entries as a JSON file.
     public void SaveToJson(string file)
     {
         string json = JsonConvert.SerializeObject(entries, Formatting.Indented);
@@ -127,7 +127,7 @@ class PromptGenerator
     {
         if (currentIndex >= prompts.Count)
         {
-            currentIndex = 0; // Reset to the first prompt if we've reached the end
+            currentIndex = 0; // Reset to the first prompt if we've reached the end.
         }
         return prompts[currentIndex++];
     }
